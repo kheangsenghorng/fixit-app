@@ -37,7 +37,7 @@ class MyApp extends StatelessWidget {
          FOR TESTING ALL DARK: Change to -> themeMode: ThemeMode.dark
          FOR PRODUCTION: Keep as -> themeMode: themeProvider.themeMode
       */
-      themeMode: ThemeMode.dark,
+      // themeMode: ThemeMode.dark,
 
       // iOS-only platform check logic
       home: Platform.isIOS
