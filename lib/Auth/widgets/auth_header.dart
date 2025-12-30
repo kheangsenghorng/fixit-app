@@ -10,13 +10,6 @@ class AuthHeader extends StatelessWidget {
 
     return Row(
       children: [
-        IconButton(
-          icon: Icon(
-            Icons.arrow_back,
-            color: colorScheme.onSurface, // ✅ theme-based
-          ),
-          onPressed: () => Navigator.pop(context),
-        ),
         const SizedBox(width: 8),
         Image.asset(
           'assets/logo/fixit_logo_small.png',

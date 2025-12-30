@@ -21,7 +21,7 @@ class SocialButton extends StatelessWidget {
         color: colorScheme.surface,
         borderRadius: BorderRadius.circular(8),
         border: Border.all(
-          color: colorScheme.onSurface.withOpacity(0.2),
+          color: colorScheme.onSurface.withValues(alpha: 0.2),
         ),
       ),
       child: Row(

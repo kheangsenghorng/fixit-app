@@ -5,10 +5,13 @@ ThemeData darkTheme = ThemeData(
   primaryColor: const Color(0xFF0056D2),
   scaffoldBackgroundColor: const Color(0xFF121212),
 
-  colorScheme: const ColorScheme.dark(
+
+  colorScheme:  ColorScheme.dark(
     primary: Color(0xFF0056D2),
     secondary: Color(0xFFFF6B00),
     surface: Color(0xFF1E1E1E),
+    surfaceContainerLowest: Color(0xFFEFF1F3),
+    surfaceContainerHighest: Colors.grey.shade200,
   ),
 
   inputDecorationTheme: InputDecorationTheme(

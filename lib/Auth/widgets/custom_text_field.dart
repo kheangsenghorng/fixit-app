@@ -30,17 +30,17 @@ class CustomTextField extends StatelessWidget {
         decoration: InputDecoration(
           hintText: hint,
           hintStyle: TextStyle(
-            color: colorScheme.onSurface.withOpacity(0.6),
+            color: colorScheme.onSurface.withValues(alpha: 0.6),
           ),
           prefixIcon: Icon(
             icon,
-            color: colorScheme.onSurface.withOpacity(0.7),
+            color: colorScheme.onSurface.withValues(alpha: 0.7),
             size: 20,
           ),
           suffixIcon: isPassword
               ? Icon(
             Icons.visibility_off_outlined,
-            color: colorScheme.onSurface.withOpacity(0.6),
+            color: colorScheme.onSurface.withValues(alpha: 0.7),
           )
               : null,
           contentPadding: const EdgeInsets.symmetric(vertical: 15),
