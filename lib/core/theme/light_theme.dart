@@ -6,10 +6,12 @@ ThemeData lightTheme = ThemeData(
   scaffoldBackgroundColor: const Color(0xFF002B5B),
 
   // Color Scheme
-  colorScheme: const ColorScheme.light(
+  colorScheme: ColorScheme.light(
     primary: Color(0xFF0056D2),
     secondary: Color(0xFFFF6B00), // The orange from your logo
     surface: Colors.white,
+    surfaceContainerLowest: Color(0xFF0056D2),
+    surfaceContainerHighest:  Colors.blue.shade50, // ≈ black.shade200
   ),
 
   // Input Decoration Theme for your text fields

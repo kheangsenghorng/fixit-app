@@ -1,5 +1,5 @@
+import 'package:fixit/routes/app_routes.dart';
 import 'package:flutter/material.dart';
-import '../Auth/login_screen.dart';
 
 class OnboardingScreen extends StatefulWidget {
   const OnboardingScreen({super.key});
@@ -31,9 +31,9 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
   ];
 
   void _finishOnboarding() {
-    Navigator.pushReplacement(
+    Navigator.pushReplacementNamed(
       context,
-      MaterialPageRoute(builder: (_) => const LoginScreen()),
+      AppRoutes.main,
     );
   }
 
@@ -149,7 +149,7 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
         // Dots are white on the blue background
         color: _currentPage == index
             ? Colors.white
-            : Colors.white.withOpacity(0.3),
+            : Colors.white.withValues(alpha: 0.3),
         borderRadius: BorderRadius.circular(3),
       ),
     );
@@ -179,8 +179,8 @@ class OnboardingContent extends StatelessWidget {
           width: MediaQuery.of(context).size.width * 0.8,
           height: MediaQuery.of(context).size.height * 0.4,
           decoration: BoxDecoration(
-            color: colorScheme.primary.withOpacity(
-              theme.brightness == Brightness.dark ? 0.25 : 0.5,
+            color: colorScheme.primary.withValues(
+              alpha: theme.brightness == Brightness.dark ? 0.25 : 0.5,
             ),
             borderRadius: BorderRadius.circular(20),
           ),
@@ -206,7 +206,7 @@ class OnboardingContent extends StatelessWidget {
             description,
             textAlign: TextAlign.center,
             style: theme.textTheme.bodyMedium?.copyWith(
-              color: Colors.white.withOpacity(0.8), // Forced white for contrast
+              color: Colors.white.withValues(alpha: 0.8), // Forced white for contrast
             ),
           ),
         ),

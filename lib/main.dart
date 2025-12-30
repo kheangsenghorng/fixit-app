@@ -1,17 +1,16 @@
-import 'dart:io'; // Required for Platform.isIOS check
+import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
-// Import your internal files
-import 'package:fixit/SplashScreen/splash_screen_widget.dart';
-import 'package:fixit/core/theme/app_theme.dart';
-import 'package:fixit/core/provider/theme_provider.dart';
+import 'core/provider/theme_provider.dart';
+import 'core/theme/app_theme.dart';
+import 'routes/app_routes.dart';
+import 'routes/route_generator.dart';
 
 void main() {
   runApp(
-    // Wrap the app with ThemeProvider to manage light/dark state
     ChangeNotifierProvider(
-      create: (context) => ThemeProvider(),
+      create: (_) => ThemeProvider(),
       child: const MyApp(),
     ),
   );
@@ -22,38 +21,26 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    // Access the provider to listen for theme changes
     final themeProvider = Provider.of<ThemeProvider>(context);
 
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'FixIt',
 
-      // Apply your Design System Themes
+      // Themes
       theme: AppTheme.light,
       darkTheme: AppTheme.dark,
 
-      /*
-         FOR TESTING ALL DARK: Change to -> themeMode: ThemeMode.dark
-         FOR PRODUCTION: Keep as -> themeMode: themeProvider.themeMode
-      */
-      // themeMode: ThemeMode.dark,
+       themeMode: ThemeMode.light,
+      // Use provider in production
+      // themeMode: themeProvider.themeMode,
 
-      // iOS-only platform check logic
-      home: Platform.isIOS
-          ? const SplashScreenWidget()
-          : const Scaffold(
-        body: Center(
-          child: Padding(
-            padding: EdgeInsets.all(20.0),
-            child: Text(
-              "This application is currently optimized for iOS only.",
-              textAlign: TextAlign.center,
-              style: TextStyle(fontSize: 16),
-            ),
-          ),
-        ),
-      ),
+      // Platform-based routing
+      initialRoute: Platform.isIOS
+          ? AppRoutes.splash
+          : AppRoutes.unsupported,
+
+      onGenerateRoute: RouteGenerator.generateRoute,
     );
   }
 }
