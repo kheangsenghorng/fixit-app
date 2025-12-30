@@ -18,11 +18,13 @@ class ProviderCard extends StatelessWidget {
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
     final colorScheme = theme.colorScheme;
+    final textTheme = theme.textTheme;
+
 
     return Container(
       padding: const EdgeInsets.all(12),
       decoration: BoxDecoration(
-        color: Colors.white,
+        color: colorScheme.surface,
         borderRadius: BorderRadius.circular(16),
         border: Border.all(color: Colors.grey.shade200),
         boxShadow: [
@@ -55,10 +57,10 @@ class ProviderCard extends StatelessWidget {
           // 2. Name
           Text(
             name,
-            style: const TextStyle(
+            style:  TextStyle(
               fontWeight: FontWeight.bold,
               fontSize: 16,
-              color: Colors.black87,
+              color:textTheme.titleMedium!.color,
             ),
             maxLines: 1,
             overflow: TextOverflow.ellipsis,

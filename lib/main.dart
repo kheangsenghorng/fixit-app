@@ -31,7 +31,9 @@ class MyApp extends StatelessWidget {
       theme: AppTheme.light,
       darkTheme: AppTheme.dark,
 
-       themeMode: ThemeMode.light,
+       themeMode: ThemeMode.dark,
+      // themeMode: ThemeMode.light,
+
       // Use provider in production
       // themeMode: themeProvider.themeMode,
 
